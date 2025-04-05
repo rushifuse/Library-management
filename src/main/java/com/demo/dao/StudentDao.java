@@ -17,8 +17,9 @@ public interface StudentDao extends JpaRepository<Student, Integer>
 		
 		Student findByEmailAndPassword(String email, String password);
 
-		@Query(value = "select image from student_registration where name = ?1" , nativeQuery = true)
+		@Query(value = "select image from student_registration where lower(name) = lower(?1)", nativeQuery = true)
 		byte[] findImageBydName(String name);
+
 
 		Student findByName(String name);
 		
