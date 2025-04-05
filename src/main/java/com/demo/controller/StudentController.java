@@ -42,7 +42,7 @@ public class StudentController
 	@Autowired
 	private PurchaseService ps;
 	
-	@GetMapping(value = {"/index"})
+	@GetMapping(value = {"/", "/index"})
 	public ModelAndView m1(ModelAndView m)
 	{
 		m.setViewName("index.jsp");
