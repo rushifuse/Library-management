@@ -49,7 +49,7 @@ public class StudentController
 		return m;
 	}
 	@GetMapping(value = {"/"})
-	public ModelAndView m1(ModelAndView m)
+	public ModelAndView m34(ModelAndView m)
 	{
 		m.setViewName("main.jsp");
 		return m;
