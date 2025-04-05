@@ -224,9 +224,7 @@ border: 5px groove black;
 		
 		<div align="center">
     <img alt="Profile Photo" 
-         src="${pageContext.request.contextPath}/findImage/${student.name}" 
-         width="200" height="200" 
-         style="border: 3px solid black; border-radius: 25%;" />
+         src="${pageContext.request.contextPath}/findImage/${student.name}"  />
 </div>
 
   
