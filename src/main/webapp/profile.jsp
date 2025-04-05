@@ -223,9 +223,12 @@ border: 5px groove black;
     <h1 style="color: red">Student Profile</h1>
 		
 		<div align="center">
-				<img alt="" src="findImage/${student.name}">	
-				
-		</div>
+    <img alt="Profile Photo" 
+         src="${pageContext.request.contextPath}/findImage/${student.name}" 
+         width="200" height="200" 
+         style="border: 3px solid black; border-radius: 25%;" />
+</div>
+
   
   <form action="back1" method="get"  enctype="multipart/form-data">
 <button type="submit" class="btn" name="back" value="back" >Back</button>
