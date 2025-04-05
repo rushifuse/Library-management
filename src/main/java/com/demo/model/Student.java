@@ -29,8 +29,10 @@ public class Student
 	@Column(columnDefinition = "varchar(500)")
 	private String dept;
 	
-	@Column(columnDefinition = "longblob")
+	@Lob
+	@Column(name = "image")
 	private byte[] image;
+
 	
 	private String std_id;
 	
