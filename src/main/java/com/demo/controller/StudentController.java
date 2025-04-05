@@ -1,15 +1,18 @@
-package com.example.Student_Library_Management_System.Controller;
+package com.demo.controller;
 
-import com.example.Student_Library_Management_System.Entities.Purchase;
-import com.example.Student_Library_Management_System.Entities.Student;
-import com.example.Student_Library_Management_System.Service.PurchaseService;
-import com.example.Student_Library_Management_System.Service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import com.demo.model.Purchase;
+import com.demo.model.Student;
+import com.demo.service.PurchaseService;
+import com.demo.service.StudentService;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 
 @Controller
@@ -59,7 +62,7 @@ public class StudentController {
 
     @GetMapping("/logoutstudent")
     public ModelAndView logoutStudent(HttpSession session) {
-        session.invalidate(); // clear session
+        session.invalidate();
         return new ModelAndView("redirect:/studentlogin");
     }
 }
