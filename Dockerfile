@@ -1,25 +1,27 @@
-# Use OpenJDK 17 slim image
+# Use lightweight OpenJDK 17 image
 FROM openjdk:17-jdk-slim
 
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy Maven wrapper and related files (for cache optimization)
+# Copy Maven wrapper and .mvn directory
 COPY mvnw .
 COPY .mvn .mvn
 
-# Copy pom.xml and download dependencies
+# Copy the Maven build file
 COPY pom.xml .
+
+# Download dependencies (for better Docker layer caching)
 RUN chmod +x mvnw && ./mvnw dependency:go-offline
 
-# Copy the full source code
+# Copy the source code
 COPY src src
 
-# Build the Spring Boot app
+# Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Expose the port your app runs on (match application.properties)
+# Expose the port the app runs on
 EXPOSE 8080
 
-# Run the app
+# Run the Spring Boot app
 CMD ["java", "-jar", "target/Library-0.0.1-SNAPSHOT.jar"]
