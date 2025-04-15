@@ -30,8 +30,9 @@ public class Student {
     private String dept;
 
     @Lob
-    @Column(name = "image")
+    @Column(columnDefinition = "bytea")
     private byte[] image;
+
 
     private String std_id;
 
